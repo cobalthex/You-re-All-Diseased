@@ -1,0 +1,73 @@
+This is a simple tool for creating 2D maps.
+This tool opens .2M maps and exports .2MCP maps
+Copyright (c) 2011 Dejitaru Forge
+
+
+Move the map using the mouse while holding the middle mouse button.
+To reset the map position, press ctrl + middle mouse.
+Use the number keys (1, 2, 3, 4) to change modes.
+
+[G] to toggle gridding
+[V] to toggle showing of bounding box
+[C] to toggle showing of collision lines (does not apply to Collision mode)
+[P] to render the map (will render in blocks of 2048 textures)
+
+[S] to save the current map (to *.2mcp)
+[B] to open an existing map (from *.2m)
+[N] to create a new map
+[X] to exit
+
+
+-Tiles mode-
+------------
+This tool is used to create tile based maps using a loaded tileset.
+
+Place tiles using the left mouse button.
+Erase a tile by using the right mouse button.
+
+[T] to load a tileset
+[Tab] (hold) to show the tileset selector
+[R] to resize the map
+
+From the tileset selector:
+[W] to scroll up
+[S] to scroll down
+The middle mouse button (with dragging) or the scroll wheel can also be used to scroll
+
+Click a tile to select it
+Release Tab to go back to the tile editor
+
+-Collision Mode-
+----------------
+This tool is used to create a collision polygon that defines where entities are allowed to move.
+
+Add a collision point using the left mouse button.
+Remove the point using the right mouse button.
+
+[F] to toggle whether or not the polygon is connected between the first and last points.
+
+
+-Entity Mode-
+-------------
+This tool is  used to place entities in the world. To place an entity, click anywhere and a dialog will pop up.
+Select from a list of loaded entities and then give it options in the 'Other Options' panel.
+To confirm, click Close (or the X button)
+To edit the entity, simply select the entity so there is a box around it, then click it again.
+Right click the selected entity to deselect it.
+To move an entity when it's selected, use the arrow keys. Hold shift while moving to move faster. 
+To delete it, press [Del] or set its entity to blank.
+
+Entities are loaded through a file called elst (no ext.) that holds all of the entities in the format of:
+Ent ID,name,image(with ext.) 
+One per line
+
+[R] to rotate the entity - Hold shift while rotating to snap the angle.
+[Del] to delete the sprite
+
+
+-Mucus Mode-
+------------
+This tool is used to place mucus around the map. Mucus is a substance that slows down anything that moves through it.
+It also comes in 4 sizes from very small to very big. Mucus is permanent unless shot.
+To use this tool hold down the left mouse button to create mucus, mucus placed near each other will be grouped.
+To remove mucus, right click, this will shrink the mucus until it is no longer there.

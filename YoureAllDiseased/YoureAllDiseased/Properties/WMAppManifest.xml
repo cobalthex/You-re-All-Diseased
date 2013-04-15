@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.0">
+  <App xmlns="" ProductID="{dc09f564-5eaf-4905-82c3-ac78aeaca181}" Title="You're All Diseased!" RuntimeType="XNA" Version="1.0.0.0" Genre="Apps.Games" Author="Dejitaru Forge" Description="A 2D shoot 'em up game based inside your body where you have to fight off hordes of viruses and bacteria trying to eat you alive!" Publisher="Dejitaru Forge">
+    <IconPath IsRelative="true" IsResource="false"></IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_SENSORS" />
+      <Capability Name="ID_CAP_MEDIALIB" />
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_PHONEDIALER" />
+      <Capability Name="ID_CAP_IDENTITY_USER" />
+      <Capability Name="ID_CAP_GAMERSERVICES" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default"/>
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="YoureAllDiseasedToken" TaskName="_default">
+        <TemplateType5>
+          <BackgroundImageURI IsRelative="true" IsResource="false"></BackgroundImageURI>
+          <Count>0</Count>
+          <Title></Title>
+        </TemplateType5>
+      </PrimaryToken>
+    </Tokens>
+  </App>
+</Deployment>
+

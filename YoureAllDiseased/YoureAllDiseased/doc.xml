@@ -1,0 +1,1941 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YoureAllDiseased</name>
+    </assembly>
+    <members>
+        <member name="T:YoureAllDiseased.PauseScreen">
+            <summary>
+            The pause screen
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.GameScreen">
+            <summary>
+            The base type for all screens handled by the state manager
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameScreen.parent">
+            <summary>
+            The state manager handling this screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameScreen.screenType">
+            <summary>
+            The type of screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameScreen.screenState">
+            <summary>
+            The state of the screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameScreen.content">
+            <summary>
+            The content manager for this screen (loaded on screen open, unloaded after exit)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameScreen.spriteBatch">
+            <summary>
+            A pre-implemented spritebatch for use
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameScreen.screenStartTime">
+            <summary>
+            The time that the screen was loaded
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.GameScreen.LoadContent(System.Collections.Generic.List{System.Object})">
+            <summary>
+            Load graphics content for the screen.
+            <param name="args">Arugments sent by the state manager</param>
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.GameScreen.UnloadContent">
+            <summary>
+            Unload content for the screen.
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.GameScreen.HandleInput(Microsoft.Xna.Framework.GameTime,YoureAllDiseased.InputManager)">
+            <summary>
+            Handle any input
+            </summary>
+            <param name="gameTime">Game time</param>
+            <param name="input">Input manager to read input from</param>
+        </member>
+        <member name="M:YoureAllDiseased.GameScreen.Update(Microsoft.Xna.Framework.GameTime,System.Boolean,System.Boolean)">
+            <summary>
+            Update the screen
+            </summary>
+            <param name="gameTime">Game time</param>
+            <param name="isVisible">Is the screen visible by the user?</param>
+            <param name="isCovered">Is the screen covered by another screen?</param>
+        </member>
+        <member name="M:YoureAllDiseased.GameScreen.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draw the screen
+            </summary>
+            <param name="gameTime">Game time</param>
+        </member>
+        <member name="M:YoureAllDiseased.GameScreen.Close(YoureAllDiseased.Transition)">
+            <summary>
+            Close this screen
+            </summary>
+            <param name="exitTransition">The optional exiting transition</param>
+        </member>
+        <member name="M:YoureAllDiseased.GameScreen.Reset">
+            <summary>
+            Reset this screen (does not reload content)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PauseScreen.pauseLogo">
+            <summary>
+            The image saying "Paused" displayed in the center of the screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PauseScreen.black">
+            <summary>
+            a simple black texture
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PauseScreen.owner">
+            <summary>
+            Who owns this screen
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Liner">
+            <summary>
+            Liner
+            A simple (static) class for drawing lines in a spritebatch
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Liner.DrawLine(Microsoft.Xna.Framework.Graphics.SpriteBatch@,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)">
+            <summary>
+            Draw a line into a SpriteBatch
+            </summary>
+            <param name="batch">SpriteBatch to draw line</param>
+            <param name="color">The line color</param>
+            <param name="point1">Start Point</param>
+            <param name="point2">End Point</param>
+            <param name="Layer">Layer or Z position</param>
+        </member>
+        <member name="T:YoureAllDiseased.FadeOutTransition">
+            <summary>
+            A simple fade in (from black) transition
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Transition">
+            <summary>
+            A one-way screen transition fo the Game State Manager
+            
+            note: transition automatically ends at end of first cycle of animation
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Animation">
+            <summary>
+            A generic animation class
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Animation.frameTimeType">
+            <summary>
+            The type of frame time for this animation
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Animation.delay">
+            <summary>
+            How long to wait before starting the animation (ignored in frame based animation)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Animation.framesPerSecond">
+            <summary>
+            Only used for frame based animation
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Animation.frames">
+            <summary>
+            The number of frames (optional)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Animation.currentFrame">
+            <summary>
+            Current frame (starting at 0)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Animation.startFrame">
+            <summary>
+            Starting frame
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Animation.startTime">
+            <summary>
+            The time when the animation started
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Animation.looping">
+            <summary>
+            Is this animation looping?
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Animation.isUpdating">
+            <summary>
+            Is the animation updating (frames advancing)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Animation.length">
+            <summary>
+            Length (based on frame type time) of each frame (modulo for frame based anim)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Animation.fCount">
+            <summary>
+            frame count (updated every call) - used for frame based animation
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Animation.#ctor(YoureAllDiseased.FrameTimeType,System.Single,System.Boolean,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new animation
+            </summary>
+            <param name="type">The frame time type (seconds/frames,etc.)</param>
+            <param name="Delay">Delay before starting animation</param>
+            <param name="Looping">is the animation looping</param>
+            <param name="Frames">Number of frames/length</param>
+            <param name="StartFrame">Frame to start the animation on (starting at 0)</param>
+            <param name="FrameLength">Length of each frame in specified time marking</param>
+            <param name="StartTime">Start time</param>
+        </member>
+        <member name="M:YoureAllDiseased.Animation.#ctor">
+            <summary>
+            Create a default animation
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Animation.IsDelayComplete">
+             <summary>
+             Check if it is safe to start animating (time is passed the delay point)
+            
+             On frame based animation, delay is calculated by framesPerSecond variable (average fps) - defaulting at 30
+             </summary>
+             <returns>true on completion</returns>
+        </member>
+        <member name="M:YoureAllDiseased.Animation.UpdateFrame">
+            <summary>
+            updates the animation
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Animation.ResetFrame">
+            <summary>
+            Reset the animation
+            </summary>
+        </member>
+        <member name="P:YoureAllDiseased.Animation.lastRefresh">
+            <summary>
+            THe last time that the animation was updated (irrelevent in frame based animation)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Transition.gd">
+            <summary>
+            The reference graphics device
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Transition.#ctor(Microsoft.Xna.Framework.Graphics.GraphicsDevice,YoureAllDiseased.FrameTimeType,System.Int32,System.Int32)">
+            <summary>
+            Create a new transition
+            </summary>
+            <param name="Type">The measurement of time for the animation</param>
+            <param name="FrameLength">The length of the transition (in the specified time type)</param>
+            <param name="Frames">The total number of frames</param>
+            <param name="GraphicsDevice">The graphics device used to drawing</param>
+        </member>
+        <member name="M:YoureAllDiseased.Transition.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch@)">
+            <summary>
+            Draw the transition
+            All logic should be handled here
+            
+            note: does (should) not call Begin or End
+            </summary>
+            <param name="spriteBatch">The sprite batch used to draw the transition</param>
+        </member>
+        <member name="T:YoureAllDiseased.IntroScreen">
+            <summary>
+            The game intro screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.IntroScreen.studioLogo">
+            <summary>
+            The logo of the Dejitaru Forge
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.LevelCompleteScreen">
+            <summary>
+            The level completion screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.LevelCompleteScreen.successLogo">
+            <summary>
+            The image saying "Success!" displayed in the center of the screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.LevelCompleteScreen.numbersSprite">
+            <summary>
+            Bitmap numbers used to show score
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.LevelCompleteScreen.scoreTxt">
+            <summary>
+            Player's score, represented in string form
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.LevelCompleteScreen.subTextFont">
+            <summary>
+            The font for the subtext
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.LevelCompleteScreen.firework">
+            <summary>
+            A single piece of firework
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.LevelCompleteScreen.fireworks">
+            <summary>
+            fireworks!
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.AnimTile">
+            <summary>
+            An animated map tile
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.AnimTile.baseIdx">
+            <summary>
+            Refrence map tile index (for map array)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.AnimTile.frames">
+            <summary>
+            Frame count
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.AnimTile.curFrame">
+            <summary>
+            current frame
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.AnimTile.offX">
+            <summary>
+            Offset X on tileset image
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.AnimTile.offY">
+            <summary>
+            Offset Y
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.AnimTile.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new animated tile
+            </summary>
+            <param name="BaseIndex">Reference index for map array</param>
+            <param name="Frames">Frame count</param>
+            <param name="OffsetX">Offset X on tileset image</param>
+            <param name="offsetY">Offset Y on tileset image</param>
+        </member>
+        <member name="T:YoureAllDiseased.Map">
+            <summary>
+            A map
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.tiles">
+            <summary>
+            The indivdual tiles (y,x)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.points">
+            <summary>
+            All of the verticies that make up the collision mesh
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.tileset">
+            <summary>
+            the tileset image for all the tiles
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.tileWidth">
+            <summary>
+            Width of each tile
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.tileHeight">
+            <summary>
+            Height of each tile
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.width">
+            <summary>
+            Width of map (in tiles)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.height">
+            <summary>
+            Height of map (in tiles)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.background">
+            <summary>
+            The background image (null for none)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.backgroundColor">
+            <summary>
+            The background color (if no background image is supplied)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.lastUpdate">
+            <summary>
+            The last updated frame for animated tiles
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.animSpeed">
+            <summary>
+            speed, in ms, of the tile animations (default is 50)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.animTiles">
+            <summary>
+            The animated tiles
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Map.ents">
+            <summary>
+            All of the entities on the map
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Map.#ctor">
+            <summary>
+            Create a new map
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Map.#ctor(System.String,Microsoft.Xna.Framework.Content.ContentManager)">
+            <summary>
+            Load a map from a .2mcp (2D map w/ collision data) file
+            </summary>
+            <param name="file">The map file (no path)</param>
+            <param name="content">The content manager for loading entities and map tiles</param>
+        </member>
+        <member name="M:YoureAllDiseased.Map.LoadEnt(System.Int32,Microsoft.Xna.Framework.Content.ContentManager@,System.String[])">
+            <summary>
+            The index of the entity to load (simply loads, does not set position or angle, etc.)
+            </summary>
+            <param name="id">ID of the entity to load</param>
+            <param name="content">content loader reference</param>
+            <param name="args">any arguments passed to this entity</param>
+            <param name="loader">Used to use any special variables</param>
+            <returns>The loaded ent</returns>
+        </member>
+        <member name="M:YoureAllDiseased.Map.Reset(System.String,Microsoft.Xna.Framework.Content.ContentManager@)">
+            <summary>
+            Reset map (only resets entities)
+            </summary>
+            <param name="file">map file</param>
+            <param name="content">content manager for entity loading</param>
+        </member>
+        <member name="M:YoureAllDiseased.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            Draw the map
+            </summary>
+            <param name="sb">The reference sprite batch to draw the tiles (does not call begin/end)</param>
+            <param name="viewport">The camera viewport for darawing (abs xy coords on map)</param>
+        </member>
+        <member name="P:YoureAllDiseased.Map.loaded">
+            <summary>
+            Is the map loaded?
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Program.Main(System.String[])">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Main">
+            <summary>
+            Main Entry for game
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Main.maxHighScores">
+            <summary>
+            maximum number of highscores to be saved
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Main.pScreen">
+            <summary>
+            The main play screen (public and static for referencing)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Main.calibScreen">
+            <summary>
+            The main calibration screen (used on phone and zune)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Main.pointer">
+            <summary>
+            A custom mouse pointer
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Main.#ctor">
+            <summary>
+            The main program
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Main.Initialize">
+            <summary>
+            Allows the game to perform any initialization it needs to before starting to run.
+            This is where it can query for any required services and load any non-graphic
+            related content.  Calling base.Initialize will enumerate through any components
+            and initialize them as well.
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Main.OnExiting(System.Object,System.EventArgs)">
+            <summary>
+            An event called when the game is exiting
+            </summary>
+            <param name="sender">the class calling this</param>
+            <param name="args">any arguments passed</param>
+        </member>
+        <member name="M:YoureAllDiseased.Main.LoadContent">
+            <summary>
+            LoadContent will be called once per game and is the place to load
+            all of your content.
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Main.UnloadContent">
+            <summary>
+            UnloadContent will be called once per game and is the place to unload
+            all content.
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Main.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Allows the game to run logic such as updating the world,
+            checking for collisions, gathering input, and playing audio.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+        </member>
+        <member name="M:YoureAllDiseased.Main.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            This is called when the game should draw itself.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+        </member>
+        <member name="M:YoureAllDiseased.Main.SaveHighScore(System.String,System.Int32)">
+            <summary>
+            Save a single high scores entry (will auto adjust list), default max 50 entries
+            </summary>
+            <param name="name">the name to associate with this score</param>
+            <param name="score">The score to save</param>
+            <returns>the position on the list, 0 -> maxHighScores-1, -1 on error or if not on list</returns>
+        </member>
+        <member name="T:YoureAllDiseased.GameStateManager">
+            <summary>
+            The Main state manager for the game that handles all assets, input, and screens
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameStateManager.isExiting">
+            <summary>
+            True if the game is exiting (use for separate threads)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameStateManager.screenToRemove">
+            <summary>
+            The current screen needing removed
+            Used for transitions
+            If this is not null when another screen is to be removed, force remove the current
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameStateManager.screenToAdd">
+            <summary>
+            A screen waiting to be added
+            Used for transitions
+            If this is not null when another screen is added, force add the current
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameStateManager.argsForAdd">
+            <summary>
+            The arguments for the screen waiting to be added
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameStateManager.random">
+            <summary>
+            A randomizer for use
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.GameStateManager.LoadContent">
+            <summary>
+            This loads the font and a few settings
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.GameStateManager.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Update all of the screens
+            </summary>
+            <param name="gameTime">Game time</param>
+        </member>
+        <member name="M:YoureAllDiseased.GameStateManager.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draw all of the screens
+            </summary>
+            <param name="gameTime">Game time</param>
+        </member>
+        <member name="M:YoureAllDiseased.GameStateManager.AddScreen(YoureAllDiseased.GameScreen,System.Collections.Generic.List{System.Object},YoureAllDiseased.Transition)">
+            <summary>
+            Add a screen to the state manager
+            </summary>
+            <param name="screen">The screen to add</param>
+            <param name="args">Arguments to send to the new screen (like level parameters); null for none</param>
+            <returns>True on successful addition</returns>
+        </member>
+        <member name="M:YoureAllDiseased.GameStateManager.RemoveScreen(YoureAllDiseased.GameScreen,YoureAllDiseased.Transition)">
+            <summary>
+            Remove a screen from the state manager
+            </summary>
+            <param name="screen">The screen to remove</param>
+            <param name="transition">The transition to use</param>
+            <returns>True on successful removal</returns>
+        </member>
+        <member name="M:YoureAllDiseased.GameStateManager.NextScreen(YoureAllDiseased.GameScreen,YoureAllDiseased.GameScreen,System.Collections.Generic.List{System.Object},YoureAllDiseased.Transition,YoureAllDiseased.Transition)">
+            <summary>
+            Properly remove and load the next screen so that transitions work properly
+            </summary>
+            <param name="current">the current screen to remove</param>
+            <param name="next">the next screen to load after that</param>
+            <param name="nextArgs">arguments for the next screen</param>
+        </member>
+        <member name="M:YoureAllDiseased.GameStateManager.GameExit(YoureAllDiseased.Transition)">
+            <summary>
+            Add a transition before exiting
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.GameStateManager.ForceRemove(YoureAllDiseased.GameScreen)">
+            <summary>
+            Forcibly remove a screen (don't transition off)
+            </summary>
+            <param name="screen">The screen to remove</param>
+            <returns>True on successful removal</returns>
+        </member>
+        <member name="M:YoureAllDiseased.GameStateManager.GetTitleSafeArea(System.Single)">
+            <summary>
+            Get the safe area for drawing (used mainly for xbox)
+            </summary>
+            <param name="percent">percentage of total screen size (0-1), default: 0.2</param>
+            <returns>the size of the safe rectangle</returns>
+        </member>
+        <member name="P:YoureAllDiseased.GameStateManager.isTrialMode">
+            <summary>
+            Is the game in trial mode? (use this not Guide.IsTrialMode, faster)
+            </summary>
+        </member>
+        <member name="P:YoureAllDiseased.GameStateManager.Screens">
+            <summary>
+            The current game screens in use
+            </summary>
+        </member>
+        <member name="P:YoureAllDiseased.GameStateManager.InputState">
+            <summary>
+            The main input manager for the game state manager
+            </summary>
+        </member>
+        <member name="P:YoureAllDiseased.GameStateManager.Font">
+            <summary>
+            The main/default font to be used by game screens
+            </summary>
+        </member>
+        <member name="P:YoureAllDiseased.GameStateManager.BlankTexture">
+            <summary>
+            A white texture the size of the screen
+            </summary>
+        </member>
+        <member name="P:YoureAllDiseased.GameStateManager.SpriteBatch">
+            <summary>
+            The main spritebatch that all screens inherit from
+            </summary>
+        </member>
+        <member name="P:YoureAllDiseased.GameStateManager.Content">
+            <summary>
+            The main content manager that all game screens should inherit from
+            </summary>
+        </member>
+        <member name="P:YoureAllDiseased.GameStateManager.frameTicks">
+            <summary>
+            Ticks based on frames (not time) for the whole game, only updated when drawing
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Accelerometer">
+            <summary>
+            A static encapsulation of accelerometer input to provide games with a polling-based
+            accelerometer system.
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Accelerometer.calibration">
+            <summary>
+            Calibration factor (automatically applied)
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Accelerometer.Initialize">
+            <summary>
+            Initializes the Accelerometer for the current game. This method can only be called once per game.
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Accelerometer.GetState">
+            <summary>
+            Gets the current state of the accelerometer.
+            </summary>
+            <returns>A new AccelerometerState with the current state of the accelerometer.</returns>
+        </member>
+        <member name="T:YoureAllDiseased.AccelerometerState">
+            <summary>
+            An encapsulation of the accelerometer's current state.
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.AccelerometerState.#ctor(Microsoft.Xna.Framework.Vector3,System.Boolean)">
+            <summary>
+            Initializes a new AccelerometerState.
+            </summary>
+            <param name="acceleration">The current acceleration (in G-force) of the accelerometer.</param>
+            <param name="isActive">Whether or not the accelerometer is active.</param>
+        </member>
+        <member name="M:YoureAllDiseased.AccelerometerState.ToString">
+            <summary>
+            Returns a string containing the values of the Acceleration and IsActive properties.
+            </summary>
+            <returns>A new string describing the state.</returns>
+        </member>
+        <member name="P:YoureAllDiseased.AccelerometerState.Acceleration">
+            <summary>
+            Gets the accelerometer's current value in G-force.
+            </summary>
+        </member>
+        <member name="P:YoureAllDiseased.AccelerometerState.IsActive">
+            <summary>
+            Gets whether or not the accelerometer is active and running.
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.DeathEffect">
+            <summary>
+            A simple fade effect for when the player dies (and respawns)
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Enemies.Influenza">
+            <summary>
+            The flu
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Entity">
+            <summary>
+            An inheritable entity class that controls all interactive objects
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.currentWeapon">
+            <summary>
+            current weapon (if no ammo left, defaults to antibody
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.maxAmmo">
+            <summary>
+            max ammo for gun (-1 for none)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.currentAmmo">
+            <summary>
+            current ammo
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.weaponDelay">
+            <summary>
+            delay between shots (in ms)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.name">
+            <summary>
+            Name of entity (like blue soldier, ammo box, etc.)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.position">
+            <summary>
+            absolute position (in px)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.velocity">
+            <summary>
+            any movement (0 for none)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.angle">
+            <summary>
+            the current angle that the entity is facing (in rad)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.size">
+            <summary>
+            The collision rectangle for the entity
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.maxHealth">
+            <summary>
+            max hitpoints (0 for irrelevent)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.maxLives">
+            <summary>
+            max number of lives (starting # of lives)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.currentLives">
+            <summary>
+            Current # of lives -- does not apply if using hearts
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:YoureAllDiseased.Entity.currentHealth" -->
+        <member name="F:YoureAllDiseased.Entity.canHit">
+            <summary>
+            Can this ent be hit? (invincibility)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.isInvulnerable">
+            <summary>
+            Is this entity currently invulnerable (will cause the ent to 'glow')
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.isHit">
+            <summary>
+            specifies whether this has been hit; used for drawing, reset after each frame
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.sprite">
+            <summary>
+            The corresponding sprite 
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.isBoss">
+            <summary>
+            Is this a boss?
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entity.bossRadius">
+            <summary>
+            How close the player must be to the boss for boss mode to begin
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Entity.#ctor(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Rectangle,System.Single,System.Int32,System.Int32)">
+            <summary>
+            Create a new entity
+            </summary>
+            <param name="Name">The name/category of the entity</param>
+            <param name="Position">Position on the map of the entity</param>
+            <param name="CollisionRect">The rectangle for collision dectection</param>
+            <param name="AngleFacing">The angle that the sprite is facing (in radians, 0 is to the right)</param>
+            <param name="MaxHealth">total health that the entity has available</param>
+            <param name="MaxLives">The total number of lives (0 for irrelevent)</param>
+        </member>
+        <member name="M:YoureAllDiseased.Entity.#ctor(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Rectangle,System.Single,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new boss
+            </summary>
+            <param name="Name">The name/category of the entity</param>
+            <param name="Position">Position on the map of the entity</param>
+            <param name="CollisionRect">The rectangle for collision dectection</param>
+            <param name="AngleFacing">The angle that the sprite is facing (in radians, 0 is to the right)</param>
+            <param name="MaxHealth">total health that the entity has available</param>
+            <param name="PointsOnDeath">Total points awarded for killing this boss</param>
+            <param name="BossRadius">How far away the boss should be from the player before the game enters boss mode</param>
+        </member>
+        <member name="M:YoureAllDiseased.Entity.Think(Microsoft.Xna.Framework.GameTime,YoureAllDiseased.PlayScreen)">
+            <summary>
+            Update the entity and perform any AI
+            </summary>
+            <param name="gameTime">Game Time</param>
+            <param name="owner">The owner of this entity, for referencing parts of the game like other entities (namely, the player)</param>
+        </member>
+        <member name="M:YoureAllDiseased.Entity.OnDie(Microsoft.Xna.Framework.GameTime,YoureAllDiseased.PlayScreen)">
+            <summary>
+            Called when this ent dies
+            </summary>
+            <param name="gameTime">game time</param>
+            <param name="owner">The owner of this entity</param>
+        </member>
+        <member name="P:YoureAllDiseased.Entity.pointsOnDeath">
+            <summary>
+            The number of points awarded to the player on this entity's death
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.MainMenuScreen">
+            <summary>
+            The game title intro screen (Second)
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.MainMenuScreen.SelectItem(System.Int32)">
+            <summary>
+            Perform an action when 
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="T:YoureAllDiseased.InputManager">
+            <summary>
+            A simple virtualized input manager
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.InputManager.touches">
+            <summary>
+            Touches
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.InputManager.pTouches">
+            <summary>
+            Previous touches
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.InputManager.threadLock">
+            <summary>
+            Thread locking for reading accel data
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.InputManager.mState">
+            <summary>
+            The raw mouse data
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.InputManager.keyboard">
+            <summary>
+            The raw keyboard data (for accelerometer)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.InputManager.accelReading">
+            <summary>
+            acceleration of device (keyboard arrows on windows)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.InputManager.isBackButtonPressed">
+            <summary>
+            Is the back button (Windows phone/xbox) pressed? (Esc. on windows)
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.InputManager.#ctor">
+            <summary>
+            Create a new Input Manager
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.InputManager.Update">
+            <summary>
+            Update all of the inputs
+            </summary>
+        </member>
+        <member name="P:YoureAllDiseased.InputManager.accelerometerActive">
+            <summary>
+            Is the acelerometer active?
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Touch">
+            <summary>
+            A single touch
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Touch.position">
+            <summary>
+            The position on screen of the touch
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Touch.pressure">
+            <summary>
+            How strong the touch is
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Touch.id">
+            <summary>
+            The ID of this touch
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Touch.state">
+            <summary>
+            The current state of the object
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Touch.#ctor(Microsoft.Xna.Framework.Vector2,System.Single,System.UInt32,YoureAllDiseased.TouchState)">
+            <summary>
+            Create a new touch
+            </summary>
+            <param name="Position">Position on screen</param>
+            <param name="Pressure">How strong</param>
+            <param name="Id">ID</param>
+            <param name="State">State of touch</param>
+        </member>
+        <member name="T:YoureAllDiseased.TouchState">
+            <summary>
+            A simple list of touch states
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.TouchState.Invalid">
+            <summary>
+            Invalid/unavailable
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.TouchState.Released">
+            <summary>
+            Released
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.TouchState.Pressed">
+            <summary>
+            Pressed/held
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.TouchState.Moved">
+            <summary>
+            Moved away from previous point
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Weapon">
+            <summary>
+            The type of weapon that an ent is using (first are for player, starting at EnemyGeneric are enemys'); value = damage
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Weapon.Histamine">
+            <summary>
+            A simple histamine excreter
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Weapon.Antibody">
+            <summary>
+            A simple antibody shooter
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Weapon.Granzyme">
+            <summary>
+            A cytoplasmic granule that contains a very effective venom
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Weapon.EnemyGeneric">
+            <summary>
+            A generic enemy shooter
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Weapon.BossFlutter">
+            <summary>
+            A basic flutter missle that is fired in large quantities which fire out in straight lines
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Weapon.BossRocket">
+            <summary>
+            A basic boss rocket that is simply large and painful, but slow
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Weapon.RhinoRocket">
+            <summary>
+            Rhino virus's primary weapon, shoots out tracking missiles 
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Weapon.DeathMachine">
+            <summary>
+            Special debug weapons (super cheat weapons)
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Enemies.Spawner">
+            <summary>
+            A generic swarming type enemy
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Spawner.spawnList">
+            <summary>
+            All of the entities to be spawned out of this spawner
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Spawner.deadSprite">
+            <summary>
+            The sprite to display while the spawner is inactive
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Spawner.aliveSprite">
+            <summary>
+            The sprite to display while the spawner is active
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Spawner.timer">
+            <summary>
+            The last time an enemy was spawned (only used if useTimer = true)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Spawner.waitTime">
+            <summary>
+            how long to wait (in ms) before spawning a new ent (only used if useTimer = true)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Spawner.useTimer">
+            <summary>
+            Use the timer to spawn enemies if true
+            wait until previously spawned enemy is dead to spawn new
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Spawner.spawnedEnt">
+            <summary>
+            The currently spawned entity (only used if useTimer = false)
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Entities.Enemies.Spawner.#ctor(System.Collections.Generic.List{YoureAllDiseased.Entity},System.Int64)">
+            <summary>
+            Create a new spawner
+            </summary>
+            <param name="spawnList">The list of entities to spawn</param>
+            <param name="waitTime">How long to wait before spawning each item</param>
+        </member>
+        <member name="M:YoureAllDiseased.Entities.Enemies.Spawner.#ctor(System.Collections.Generic.List{YoureAllDiseased.Entity})">
+            <summary>
+            Create a new spawner
+            </summary>
+            <param name="spawnList">The list of entiteis to spawn</param>
+        </member>
+        <member name="T:YoureAllDiseased.GameOverScreen">
+            <summary>
+            The game over screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameOverScreen.gameOverLogo">
+            <summary>
+            The image saying "Game Over" displayed in the center of the screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameOverScreen.numbersSprite">
+            <summary>
+            Bitmap numbers used to show score
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameOverScreen.scoreTxt">
+            <summary>
+            Player's score, represented in string form
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameOverScreen.score">
+            <summary>
+            player score
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.GameOverScreen.subTextFont">
+            <summary>
+            The font for the subtext
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.ScreenType">
+            <summary>
+            The type of screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ScreenType.Screen">
+            <summary>
+            A normal screen (covers and hides)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ScreenType.Popup">
+            <summary>
+            A popup/dialog (covers but does not hide)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ScreenType.Overlay">
+            <summary>
+            A screen to be drawn over the one below (does not cover or hide)
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.ScreenState">
+            <summary>
+            The state of the screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ScreenState.Active">
+            <summary>
+            Currently running/visible
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ScreenState.TransitionOn">
+            <summary>
+            Waiting to load
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ScreenState.TransitionOff">
+            <summary>
+            Leaving
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ScreenState.Inactive">
+            <summary>
+            Not running/visible
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Enemies.Polio">
+            <summary>
+            Polio
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Polio.bound">
+            <summary>
+            the polio that this is linked to (null for none)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Polio.linkDist">
+            <summary>
+            How far away ent can be to link with another
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Enemies.Blocker">
+            <summary>
+            An entity that attracts the player and does not let them escape until it [the ent] dies
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Blocker.activated">
+            <summary>
+            Is this attracting the player?
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Blocker.attractRadius">
+            <summary>
+            How far out to let the player go
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Blocker.check">
+            <summary>
+            The entity who has to be killed for this to be killed
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Entities.Enemies.Blocker.#ctor(YoureAllDiseased.Entity@)">
+            <summary>
+            Create a new blocker
+            </summary>
+            <param name="Check">The entity that is bound by blood to this entity. (The check must die for this to die)</param>
+        </member>
+        <member name="T:YoureAllDiseased.ParticleType">
+            <summary>
+            A single type of particle
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleType.texture">
+            <summary>
+            The image for this particle
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleType.width">
+            <summary>
+            width of the texture
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleType.height">
+            <summary>
+            height of the texture
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleType.hue">
+            <summary>
+            A hue to the texture
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleType.blendState">
+            <summary>
+            The type of blending to use when rendering
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.ParticleType.#ctor(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Graphics.BlendState)">
+            <summary>
+            Create a new particle type
+            </summary>
+            <param name="Texture">The texture to use for the particles</param>
+            <param name="Hue">Any color effects to be applied</param>
+            <param name="BlendState">The blending to use for these particles</param>
+        </member>
+        <member name="T:YoureAllDiseased.ParticleEmitter">
+            <summary>
+            A single particle emitter
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleEmitter.type">
+            <summary>
+            The type of particles to emit
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleEmitter.particles">
+            <summary>
+            the list of the particles
+            Format: {x, y, velocity (if negative, represents time out, per frame), angle (in radians)}
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleEmitter.lifeSpan">
+            <summary>
+            How far the particle can be from the origin before it is destroyed
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleEmitter.decay">
+            <summary>
+            how much to lower from velocity each frame (positive)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleEmitter.speedMultiplier">
+            <summary>
+            Speed multiplier for all particles
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleEmitter.gravity">
+            <summary>
+            Amount of gravity (0 for none, down/right = +)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.ParticleEmitter.r">
+            <summary>
+            4
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.ParticleEmitter.#ctor(YoureAllDiseased.ParticleType)">
+            <summary>
+            Create an empty particle emitter
+            </summary>
+            <param name="Type">The type of particle</param>
+        </member>
+        <member name="M:YoureAllDiseased.ParticleEmitter.#ctor(YoureAllDiseased.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,System.Int32,System.Int32,System.Single,System.Single,System.Int32)">
+            <summary>
+            Create a new particle emitter
+            </summary>
+            <param name="Type">The type of particle</param>
+            <param name="numParticles">The number of particles to start with</param>
+            <param name="maxAngle">Maximum angle to spawn from 0 rads</param>
+            <param name="minAngle">Minimum angle to spawn from 0 rads</param>
+            <param name="Origin">Where to spawn</param>
+            <param name="maxVelocity">Maximum velocity of particle</param>
+            <param name="minVelocity">Minimum velocity of particle</param>
+            <param name="LifeSpan">Max distance from origin before destruction</param>
+        </member>
+        <member name="M:YoureAllDiseased.ParticleEmitter.Particulate(System.Int32,Microsoft.Xna.Framework.Vector2,System.Int32,System.Int32,System.Single,System.Single)">
+            <summary>
+            Add more particle to the emitter
+            </summary>
+            <param name="numParticles">The number of particles to start with</param>
+            <param name="maxAngle">Maximum angle to spawn from 0 rads</param>
+            <param name="minAngle">Minimum angle to spawn from 0 rads</param>
+            <param name="Origin">Where to spawn</param>
+            <param name="maxVelocity">Maximum velocity of particle</param>
+            <param name="minVelocity">Minimum velocity of particle</param>
+        </member>
+        <member name="M:YoureAllDiseased.ParticleEmitter.Draw(Microsoft.Xna.Framework.GameTime,Microsoft.Xna.Framework.Graphics.GraphicsDevice,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Draw and update all of the particles (use own spritebatch)
+            </summary>
+            <param name="gameTime">game time</param>
+            <param name="gDev">Graphics device</param>
+            <param name="drawPos">Where to draw relative to rest of the map</param>
+        </member>
+        <member name="T:YoureAllDiseased.NameEntryScreen">
+            <summary>
+            The high scores screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.NameEntryScreen.font">
+            <summary>
+            font to draw name entry with
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.NameEntryScreen.titleFont">
+            <summary>
+            font for title and lower button
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.NameEntryScreen.upDown">
+            <summary>
+            arrows to draw above/below current pos 
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.NameEntryScreen.name">
+            <summary>
+            Name of the user to be entered
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.NameEntryScreen.score">
+            <summary>
+            The score of the player
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.NameEntryScreen.currentPos">
+            <summary>
+            current char being modified
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.NameEntryScreen.pressed">
+            <summary>
+            has the 'continue' button been pressed
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.NameEntryScreen.availableChars">
+            <summary>
+            available chars for user to use for name
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.NameEntryScreen.w">
+            <summary>
+            screen size
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.NameEntryScreen.h">
+            <summary>
+            screen size
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.CreditsScreen">
+            <summary>
+            The game over screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.CreditsScreen.font">
+            <summary>
+            The font for the credits
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.CreditsScreen.fontLarge">
+            <summary>
+            large font for titles
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.CreditsScreen.creditsText">
+            <summary>
+            the credits text
+            Use . to split lines, first line is in big font, rest are in small
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.CreditsScreen.song">
+            <summary>
+            The credits song
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.CalibrationScreen">
+            <summary>
+            The Calibration screen for zune/phone
+            Screen displayed for variable time
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.CalibrationScreen.hasCalibrated">
+            <summary>
+            Has this been calibrated (so the device isn't calibrated every level, handled outside of this class)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.CalibrationScreen.aliveTime">
+            <summary>
+            How long this screen should be alive for
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.CalibrationScreen.calibrationLogo">
+            <summary>
+            The image saying "Calibrating..." displayed in the center of the screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.CalibrationScreen.owner">
+            <summary>
+            Who owns this screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.CalibrationScreen.accelData">
+            <summary>
+            The raw acceleration data for each frame
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.CalibrationScreen.cFrame">
+            <summary>
+            current calibration frame (for the accelData array)
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.CalibrationScreen.Show(YoureAllDiseased.PlayScreen)">
+            <summary>
+            Show the calibrator
+            </summary>
+            <param name="owner">who owns this screen</param>
+        </member>
+        <member name="M:YoureAllDiseased.CalibrationScreen.CalculateCalibration">
+            <summary>
+            Average all of the acceleration data together
+            </summary>
+            <returns>the calibration</returns>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Player">
+            <summary>
+            The player's entity
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Player.lastShot">
+            <summary>
+            Last shot (in ticks)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Player.respawnTime">
+            <summary>
+            The last time the player respawned
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.FrameTimeType">
+            <summary>
+            The type of frame time the animation uses
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.FrameTimeType.Days">
+            <summary>
+            Time represented in days
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.FrameTimeType.Hours">
+            <summary>
+            Time represented in hours
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.FrameTimeType.Minutes">
+            <summary>
+            Time represented in minutes
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.FrameTimeType.Seconds">
+            <summary>
+            Time represented in seconds
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.FrameTimeType.Milliseconds">
+            <summary>
+            Time represented in milliseconds
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.FrameTimeType.Frames">
+            <summary>
+            (per) Frame based animation
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.FrameTimeType.Other">
+            <summary>
+            An unspecified format
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.StartScreen">
+            <summary>
+            The xbox start screen (selects active controller)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.StartScreen.startLogo">
+            <summary>
+            The Press Start image
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Enemies.InfectedCell">
+            <summary>
+            A basic infected cell that tries to directly attack the player by swarming
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.HighScoresScreen">
+            <summary>
+            The high scores screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.HighScoresScreen.highScoresLogo">
+            <summary>
+            The image saying "High Scores" displayed in the center of the screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.HighScoresScreen.font">
+            <summary>
+            font to draw scores with
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.HighScoresScreen.fade">
+            <summary>
+            A black to transparent fade
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.HighScoresScreen.scoreTxt">
+            <summary>
+            Player's score, represented in string form
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.HighScoresScreen.myItem">
+            <summary>
+            the users score, -1 for none
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.HighScoresScreen.scrollPos">
+            <summary>
+            scrolling highscores
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Powerups.Weapons.DeathMachinePickup">
+            <summary>
+            A package of granzyme granules
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Powerups.Weapons.DeathMachinePickup.defaultAmmoCount">
+            <summary>
+            How much ammo is defaulted to pickup
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Powerups.Weapons.DeathMachinePickup.ammoCount">
+            <summary>
+            how much ammo this pickup has
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Entities.Powerups.Weapons.DeathMachinePickup.#ctor">
+            <summary>
+            Create a new death machine pickup
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Entities.Powerups.Weapons.DeathMachinePickup.#ctor(System.Int32)">
+            <summary>
+            Create a new death machine pickup
+            </summary>
+            <param name="AmmoCount">how much ammo this has</param>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Powerups.BloodRiftPowerup">
+            <summary>
+            A single health regenerator for the player
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Powerups.BloodRiftPowerup.charge">
+            <summary>
+            How powerful this powerup is (per sec)
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Entities.Powerups.BloodRiftPowerup.#ctor(System.Int32)">
+            <summary>
+            Create a new blood rift
+            </summary>
+            <param name="Charge">How powerful this charge is</param>
+        </member>
+        <member name="T:YoureAllDiseased.GameOverTransition">
+            <summary>
+            A simple fade in (from black) transition
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Powerups.HealthPowerup">
+            <summary>
+            A single health regenerator for the player
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Powerups.HealthPowerup.charge">
+            <summary>
+            How powerful this powerup is
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Entities.Powerups.HealthPowerup.#ctor(System.Int32)">
+            <summary>
+            Create a new health powerup
+            </summary>
+            <param name="Charge">How powerful this charge is</param>
+        </member>
+        <member name="T:YoureAllDiseased.FadeInTransition">
+            <summary>
+            A simple fade in (from black) transition
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.PlayScreen">
+            <summary>
+            The actual game
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.useCollision">
+            <summary>
+            Is collision detection turned on?
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.bottomlessClip">
+            <summary>
+            Conserve ammo
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.currentPlayMode">
+            <summary>
+            The current active play mode
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.map">
+            <summary>
+            The loaded map
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.level">
+            <summary>
+            The current level of the game (level #, 0 = intro)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.showCollisLines">
+            <summary>
+            show the collision lines (used for debugging purposes)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.screenRect">
+            <summary>
+            A reference rectangle for the size of the screen
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.sB">
+            <summary>
+            Spritebatch
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.playerHealthBar">
+            <summary>
+            The player's health bar
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.playerWeaponBar">
+            <summary>
+            The player's ammo meter
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.bossHealthBar">
+            <summary>
+            Boss health
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.numbersSprite">
+            <summary>
+            The bitmap number font for score, combos, and others
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.livesIcon">
+            <summary>
+            The icon to represent the number of lives the player has
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.pauseButton">
+            <summary>
+            The pause button
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.criticalHitLogo">
+            <summary>
+            The critical hit logo
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:YoureAllDiseased.PlayScreen.deathEffect" -->
+        <member name="F:YoureAllDiseased.PlayScreen.pauseScreen">
+            <summary>
+            The pause screen for this
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.histamineTx">
+            <summary>
+            Basic histamine shot
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.granzymeTx">
+            <summary>
+            A granzyme granule
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.bossFlutterTx">
+            <summary>
+            Flutter fire for bosses
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.rhinoRocketTx">
+            <summary>
+            Rhinovirus's rocket
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.deathMachineTx">
+            <summary>
+            The death machine shot
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.explosionParticles">
+            <summary>
+            Drawn whenever an object explodes
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.explosionParticle">
+            <summary>
+            Explosive particles
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.weaponParticles">
+            <summary>
+            Particles from the trails of shots
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.weaponParticle">
+            <summary>
+            Weapon particles type
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.particleMultiplier">
+            <summary>
+            Affects the number of particles the game uses (affects each particle system applied to, used for cross platform dev)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.gameSongs">
+            <summary>
+            Background music played during the game
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.bossSongs">
+            <summary>
+            Boss music (looping, and index represents which boss), index 0 = default if none found
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.player">
+            <summary>
+            The player's representation in game
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.playerKillCount">
+            <summary>
+            Player's kill count
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.playerScore">
+            <summary>
+            Player's score
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.visiblePlayerScore">
+            <summary>
+            The player's visible score (used for animations)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.currentBoss">
+            <summary>
+            The current boss, null for none (only used if in BossMode)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.bossNumber">
+            <summary>
+            current boss #
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:YoureAllDiseased.PlayScreen.bossHealthAnimation" -->
+        <member name="F:YoureAllDiseased.PlayScreen.shots">
+            <summary>
+            All of the shots fired by all entities (type, x, y, angle)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.comboTextAnimation">
+            <summary>
+            Animation for combo text (1->10), 0 for none)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.comboCount">
+            <summary>
+            Current combo number (reset on hit)
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.maxCombo">
+            <summary>
+            The largest combo the player has made
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.lastHit">
+            <summary>
+            last time player hit an enemy
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:YoureAllDiseased.PlayScreen.criticalHit" -->
+        <member name="F:YoureAllDiseased.PlayScreen.playMusic">
+            <summary>
+            play game music
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.speedMult">
+            <summary>
+            Speed multiplier
+            larger = slower
+            1x @ 30fps
+            0.5x @ 60fps
+            etc
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.bulletsCollideWithWalls">
+            <summary>
+            do bullets collide with walls (could slow down game a lot)
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.PlayScreen.Pause">
+            <summary>
+            Go to the pause screen
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.PlayScreen.PlaySong(Microsoft.Xna.Framework.Media.Song)">
+            <summary>
+            Play a song (multithreaded)
+            </summary>
+            <param name="song">song to play</param>
+        </member>
+        <member name="M:YoureAllDiseased.PlayScreen.InPoly(Microsoft.Xna.Framework.Vector2[],Microsoft.Xna.Framework.Vector2,System.Int32,System.Int32)">
+            <summary>
+            2D Check if a point lies withing a polygon.
+            </summary>
+            <param name="polygonVertex">The points of the polygon.</param>
+            <param name="testVertex">The point to check.</param>
+            <returns>
+            A boolean flag indicating if the test vertex
+            is inside the polygon.
+            </returns>
+        </member>
+        <member name="T:YoureAllDiseased.PlayScreen.PlayMode">
+            <summary>
+            The types of play available (hopefully) in this game
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.PlayMode.MainMode">
+            <summary>
+            The main top down style shooting play mode
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.PlayMode.BossMode">
+            <summary>
+            When the player is in a boss battle 
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.PlayMode.TubeMode">
+            <summary>
+            The tube (veins) shooting mode
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.PlayScreen.PlayMode.RaceMode">
+            <summary>
+            The racing through veins part of the game (tube mode occurs during this mode)
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Powerups.Weapons.GranzymePickup">
+            <summary>
+            A package of granzyme granules
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Powerups.Weapons.GranzymePickup.defaultAmmoCount">
+            <summary>
+            How much ammo is defaulted to pickup
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Powerups.Weapons.GranzymePickup.ammoCount">
+            <summary>
+            how much ammo this pickup has
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Entities.Powerups.Weapons.GranzymePickup.#ctor">
+            <summary>
+            Create a new granzyme pickup
+            </summary>
+        </member>
+        <member name="M:YoureAllDiseased.Entities.Powerups.Weapons.GranzymePickup.#ctor(System.Int32)">
+            <summary>
+            Create a new granzyme pickup
+            </summary>
+            <param name="AmmoCount">how much ammo this has</param>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Enemies.Bosses.Rhinovirus">
+            <summary>
+            The first boss in the game, the common cold
+            </summary>
+        </member>
+        <member name="T:YoureAllDiseased.Entities.Enemies.Bosses.Tuberculosis">
+            <summary>
+            Tuberculosis
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Bosses.Tuberculosis.isMother">
+            <summary>
+            main tuberculosis
+            </summary>
+        </member>
+        <member name="F:YoureAllDiseased.Entities.Enemies.Bosses.Tuberculosis.curSpawns">
+            <summary>
+            current number of children spawned
+            </summary>
+        </member>
+    </members>
+</doc>

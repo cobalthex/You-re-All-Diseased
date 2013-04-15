@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="YoureAllDiseased.Accelerometer" Collapsed="true">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAEAAAQAAAAAAABAAAAAAAAAEAAAIAAAAAAA=</HashCode>
+      <FileName>Engine\Accelerometer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Animation" Collapsed="true">
+    <Position X="3.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAABgAAAAAAAAEQgAIhABAAAAAAAFAAAAQAQAAA=</HashCode>
+      <FileName>Engine\Animation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Entity" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCIEgAAIAAAAAIAAEIACJBAQABEEAgIABAQAYABAAAA=</HashCode>
+      <FileName>Engine\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.GameScreen" Collapsed="true">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCEECAAAAABgBAEAAAAAIABAAAAAAAAAAAAACAAAQ=</HashCode>
+      <FileName>Engine\GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.StateManager" Collapsed="true">
+    <Position X="25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIYAEEAChgAAAgAAAIgBAAAAAEAAjARARIUAgAAiAIQ=</HashCode>
+      <FileName>Engine\StateManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.InputManager" Collapsed="true">
+    <Position X="26.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAEAAAAAACABABAAAAAAAICQAAAIAAAQAAgA=</HashCode>
+      <FileName>Engine\InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Liner" Collapsed="true">
+    <Position X="21.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAEACAAAAAAA=</HashCode>
+      <FileName>Engine\Liner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Map" Collapsed="true">
+    <Position X="25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAACAQAAABgQRQIAAAAAAAgAgAAkAIAABAAAAIAE=</HashCode>
+      <FileName>Engine\Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.ParticleType" Collapsed="true">
+    <Position X="21.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAABQAQAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\ParticleEmitter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.ParticleEmitter" Collapsed="true">
+    <Position X="26.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAEAAAAgAAAAgAAAgABAAFAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Engine\ParticleEmitter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Transition" Collapsed="true">
+    <Position X="3.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Engine\Transition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Program" Collapsed="true">
+    <Position X="23.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Main" Collapsed="true">
+    <Position X="23.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgSAEEEAAAECAxAAAAgBAAAAAAAAAIgAAAADAAAAAAQ=</HashCode>
+      <FileName>Main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.CalibrationScreen">
+    <Position X="1" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAYAAAggAAARAAgAAAAAAEAAAAAAAAAAAACAQ=</HashCode>
+      <FileName>Screens\CalibrationScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.CreditsScreen" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAACAACAAAgAAAABAAAAAAEAIAACAEAAAAAAAAAQ=</HashCode>
+      <FileName>Screens\CreditsScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.GameOverScreen" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAiAAgAAAgABAAAIAAAAAAAAAAAAAAAAACIAAAQ=</HashCode>
+      <FileName>Screens\GameOverScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.LevelCompleteScreen" Collapsed="true">
+    <Position X="10" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABCAAgAIAgABAIAoAAAAAAAAgAAAQEgAACAAAAU=</HashCode>
+      <FileName>Screens\LevelCompleteScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.MainMenuScreen" Collapsed="true">
+    <Position X="12.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEYAEACgBAAAAgoAAAAAAAABAAAgAAAgQAwEACQAAAQ=</HashCode>
+      <FileName>Screens\MainMenuScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.PauseScreen" Collapsed="true">
+    <Position X="14.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAggAAAAAAAAAAAACAAAAAAAAAAAAABAQ=</HashCode>
+      <FileName>Screens\PauseScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.PlayScreen" Collapsed="true">
+    <Position X="16.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iIQoMACkAADIC4qRAhABkipFAAUABDIBAACgACAAGQ4=</HashCode>
+      <FileName>Screens\PlayScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.IntroScreen" Collapsed="true">
+    <Position X="3.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAQAAAAgAAAIAAAAAAAAAAAAAAEAAAAAAAAAQ=</HashCode>
+      <FileName>Screens\IntroScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.DeathEffect" Collapsed="true">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Transitions\DeathEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.FadeInTransition" Collapsed="true">
+    <Position X="2.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Transitions\FadeInTransition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.FadeOutTransition" Collapsed="true">
+    <Position X="5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Transitions\FadeOutTransition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.GameOverTransition" Collapsed="true">
+    <Position X="7.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Transitions\GameOverTransition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Entities.Enemies.Influenza" Collapsed="true">
+    <Position X="16.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Entities\Enemies\Influenza.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Entities.Enemies.Polio" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAACAAAAAAAAAAAAAAAAAACIAAAAAA=</HashCode>
+      <FileName>Entities\Enemies\Poliomyelitis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Entities.Enemies.Spawner" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQUggAAAAAAAABAAAARAAAAAAAAAAAAAAAAIAgAAAA=</HashCode>
+      <FileName>Entities\Enemies\Spawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Entities.Enemies.Bosses.Rhinovirus" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABIAgAAAAAACAAAAAAAAAAIAAAAAAAAAAAACIAAAAAA=</HashCode>
+      <FileName>Entities\Enemies\Bosses\Rhinovirus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Entities.Enemies.Bosses.Tuberculosis" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAAAAAQAAAAAAAAAEACAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Entities\Enemies\Bosses\Tuberculosis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Entities.Player" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgIAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAQAAA=</HashCode>
+      <FileName>Entities\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Entities.Powerups.BloodRiftPowerup" Collapsed="true">
+    <Position X="14.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Entities\Powerups\BloodRiftPowerup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YoureAllDiseased.Entities.Powerups.HealthPowerup" Collapsed="true">
+    <Position X="19" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Powerups\HealthPowerup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="YoureAllDiseased.AccelerometerState" Collapsed="true">
+    <Position X="21.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Engine\Accelerometer.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="YoureAllDiseased.Touch" Collapsed="true">
+    <Position X="23.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAGAAAAAAAAAgA=</HashCode>
+      <FileName>Engine\InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="YoureAllDiseased.FrameTimeType" Collapsed="true">
+    <Position X="21.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAACQAAAAQAAAAAAAAAAAAAAAQAABAAAAAAE=</HashCode>
+      <FileName>Engine\Animation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YoureAllDiseased.Weapon" Collapsed="true">
+    <Position X="21.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAgAEgAAIBAAAAAABAAgAAAAAAACAAAAAAAEAAAA=</HashCode>
+      <FileName>Engine\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YoureAllDiseased.ScreenType" Collapsed="true">
+    <Position X="25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YoureAllDiseased.ScreenState" Collapsed="true">
+    <Position X="23.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACACAAAAAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAA=</HashCode>
+      <FileName>Engine\GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="YoureAllDiseased.TouchState" Collapsed="true">
+    <Position X="26.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAEAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAEAAA=</HashCode>
+      <FileName>Engine\InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
